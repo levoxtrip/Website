@@ -97,12 +97,20 @@
   @apply text-2xl left-40;
 }
 
+.text-one-ice {
+  @apply text-2xl;
+}
+
 .text-two {
   @apply text-2xl;
 }
 
 .text-three {
   @apply text-2xl left-40;
+}
+
+.text-three-ice {
+  @apply text-2xl;
 }
 
 /* #root .welcome-canvas{

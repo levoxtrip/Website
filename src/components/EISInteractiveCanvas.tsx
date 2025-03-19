@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const EISInteractiveCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -63,7 +63,6 @@ const EISInteractiveCanvas = () => {
 
     // Define animation controls
     let cameraControlledByMouse = true;
-    setStoryText("The data is unknown");
 
     // Generate iceberg vertices
     const generateIcebergParticles = (geometry, particleCount) => {
@@ -186,7 +185,7 @@ const EISInteractiveCanvas = () => {
 
             // Generate the particle positions from the geometry
             particlePositions = generateIcebergParticles(geometry, 500);
-            console.log("Particle Positions:", particlePositions);
+            // console.log("Particle Positions:", particlePositions);
           }
         });
 
@@ -288,6 +287,30 @@ const EISInteractiveCanvas = () => {
       }
     );
 
+    const boxGroup = new THREE.Group();
+
+    loader.load("src/assets/BoxIce.glb", (gltf) => {
+      const box = gltf.scene;
+
+      box.position.set(0, 0, 0);
+      box.scale.set(4, 4, 4);
+
+      boxGroup.add(box);
+    });
+
+    loader.load("src/assets/Screen_ice.glb", (gltf) => {
+      const screen = gltf.scene;
+      screen.position.set(1, 0, 0);
+      screen.scale.set(4, 4, 4);
+      boxGroup.add(screen);
+    });
+
+    const pointL = new THREE.PointLight("#ffffff", 2);
+    pointL.position.set(0, 16, 0);
+    boxGroup.add(pointL);
+    boxGroup.position.set(0, 0, -420);
+    boxGroup.rotation.y = -Math.PI * 0.5;
+    scene.add(boxGroup);
     // Animate the particles to form iceberg
     function animateToIceberg(duration = 3) {
       if (!particlesRef.current || particlesRef.current.length === 0) {
@@ -364,11 +387,23 @@ const EISInteractiveCanvas = () => {
       });
     }
 
+    function rotateBox() {
+      gsap.to(boxGroup.rotation, {
+        duration: 4,
+        y: 0,
+        ease: "power2.Out",
+      });
+    }
+
     // Animate the camera with smoother movement
     function moveCamera(targetPosition, duration = 4) {
       cameraControlledByMouse = false;
-      const target = new THREE.Vector3(0, 0, 0);
-
+      let target = null;
+      if (clickTotal < 3) {
+        target = new THREE.Vector3(0, 0, 0);
+      } else {
+        target = new THREE.Vector3(0, 0, -420);
+      }
       gsap.to(camera.position, {
         x: targetPosition.x,
         y: targetPosition.y,
@@ -386,8 +421,9 @@ const EISInteractiveCanvas = () => {
           targetMouseY = -targetPosition.y;
           mouseX = targetPosition.x;
           mouseY = -targetPosition.y;
-
-          cameraControlledByMouse = true;
+          if (clickTotal < 3) {
+            cameraControlledByMouse = true;
+          }
         },
       });
     }
@@ -406,46 +442,66 @@ const EISInteractiveCanvas = () => {
       targetMouseX = event.clientX - windowHalfX;
       targetMouseY = event.clientY - windowHalfY;
     };
+    setStoryText(
+      "Climate change data often exists as distant numbers and scientific models that fail to create emotional resonance with the average person. \n\n The idea of melting ice masses destroyed by us human beings is there, but still remains abstract."
+    );
 
     let clickTotal = 0;
     const handleDoubleClick = (e) => {
       clickTotal++;
-      let newStyle = null;
+      let newStyle = `text-one-ice`;
       switch (clickTotal) {
         case 1:
           animateToIceberg();
-          setStoryText("Forming the iceberg...");
+          setStoryText(
+            "We understand intellectually that glaciers are melting, but the visceral reality of this destruction remains elusive."
+          );
           newStyle = `text-two`;
           break;
         case 2:
-          animateToRandom();
+          // animateToRandom();
           moveCamera({
             x: (Math.random() - 0.5) * 400,
             y: (Math.random() - 0.5) * 400,
             z: 300 + Math.random() * 100,
           });
-          setStoryText("Dissolving the data structure");
+          setStoryText(
+            "What happens when individual parts of these masses face each other? How might we bridge the gap between data and lived experience?"
+          );
           newStyle = `text-three`;
           break;
         case 3:
-          animateToRandom();
-          moveCamera({
-            x: (Math.random() - 0.5) * 400,
-            y: (Math.random() - 0.5) * 400,
-            z: 200 + Math.random() * 200,
-          });
-          setStoryText("The data transforms again");
+          // animateToRandom();
+          cameraControlledByMouse = false;
+          moveCamera(
+            {
+              x: 0,
+              y: 8,
+              z: -390,
+            },
+            15
+          );
+
+          if (particlesRef.current) {
+            particlesRef.current.forEach((particles) => {
+              if (particles.geometry) particles.geometry.dispose();
+              if (particles.material) {
+                if (particles.material.map) particles.material.map.dispose();
+                particles.material.dispose();
+              }
+            });
+          }
+          setStoryText(
+            "The installation 01101000EIS01110011 invites viewers to confront this abstract concept through direct sensory experience."
+          );
+          newStyle = `text-three-ice`;
           break;
-        default:
-          clickTotal = 0;
-          animateToIceberg();
-          moveCamera({
-            x: 0,
-            y: 0,
-            z: 200,
-          });
-          setStoryText("Starting over...");
-          newStyle = `text-one`;
+        case 4:
+          ambientLight.color = new THREE.Color("white");
+          scene.fog = new THREE.FogExp2(0x000000, 0.005);
+          rotateBox();
+
+          newStyle = `text-three-ice`;
           break;
       }
       setTextStyle(newStyle);
@@ -482,7 +538,9 @@ const EISInteractiveCanvas = () => {
         // Then smooth camera position
         camera.position.x += (mouseX - camera.position.x) * 0.01;
         camera.position.y += (-mouseY - camera.position.y) * 0.01;
-        camera.lookAt(scene.position);
+        if (clickTotal < 3) {
+          camera.lookAt(scene.position);
+        }
       }
 
       renderer.render(scene, camera);
