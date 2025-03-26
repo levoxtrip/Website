@@ -90,7 +90,7 @@
 }
 
 .zoom-into-story-text {
-  @apply text-white absolute inline top-40 right-40 bg-black w-100 text-left;
+  @apply text-white absolute inline top-40 left-40 bg-black w-100 text-left text-2xl;
 }
 
 .text-one {

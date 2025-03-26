@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
+import { textureLoad } from "three/tsl";
+import gsap from "gsap";
 
 const ZoomIntoLaptopShiftSpace = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -17,6 +19,7 @@ const ZoomIntoLaptopShiftSpace = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x000000, 0.1);
     const camera = new THREE.PerspectiveCamera(
       45,
       window.innerWidth / window.innerHeight,
@@ -29,15 +32,15 @@ const ZoomIntoLaptopShiftSpace = () => {
 
     const texLoader = new THREE.TextureLoader();
     const plane = new THREE.PlaneGeometry(1.6, 0.9, 3, 3);
-    const planeMat = new THREE.MeshStandardMaterial();
-    const texture = texLoader.load("./img/transmorphosis/1_s.jpg");
-    planeMat.map = texture;
+    const planeMat = new THREE.MeshBasicMaterial();
+    const textureScreen = texLoader.load("./img/shift_space/Button.png");
+    planeMat.map = textureScreen;
+    planeMat.transparent = true;
     const planeMesh = new THREE.Mesh(plane, planeMat);
-
+    planeMesh.scale.set(0.75, 0.75, 0.75);
     scene.add(planeMesh);
 
     const clock = new THREE.Clock();
-    scene.fog = new THREE.Fog(0x000000, 15, 25);
 
     let laptop = new THREE.Group();
     const loader = new GLTFLoader();
@@ -47,42 +50,79 @@ const ZoomIntoLaptopShiftSpace = () => {
     });
 
     const painting1 = new THREE.PlaneGeometry(1.6, 0.9, 3, 3);
-    const paintingMat = new THREE.MeshStandardMaterial();
+    const paintingMat = new THREE.MeshBasicMaterial();
+
     const texturePainting = texLoader.load("./img/transmorphosis/1_s.jpg");
     paintingMat.map = texturePainting;
+    paintingMat.side = THREE.DoubleSide;
     const paintingMesh = new THREE.Mesh(painting1, paintingMat);
-    paintingMesh.position.set(1.25, -1.5, 30);
+    paintingMesh.position.set(-0.45, -1.5, 30);
     scene.add(paintingMesh);
     const painting2 = new THREE.PlaneGeometry(0.9, 1.6, 3, 3);
-    const paintingMat2 = new THREE.MeshStandardMaterial();
+    const paintingMat2 = new THREE.MeshBasicMaterial();
+    paintingMat2.side = THREE.DoubleSide;
     const texturePainting2 = texLoader.load("./img/transmorphosis/1_s.jpg");
     paintingMat2.map = texturePainting2;
     const paintingMesh2 = new THREE.Mesh(painting2, paintingMat2);
-    paintingMesh2.scale.setScalar(0);
-    paintingMesh2.position.set(0.5, -0.5, 25);
+
+    paintingMesh2.position.set(1.5, -0.5, 25);
     scene.add(paintingMesh2);
 
     const painting3 = new THREE.PlaneGeometry(1.6, 0.9, 3, 3);
-    const paintingMat3 = new THREE.MeshStandardMaterial();
+    const paintingMat3 = new THREE.MeshBasicMaterial();
     const texturePainting3 = texLoader.load("./img/transmorphosis/1_s.jpg");
     paintingMat3.map = texturePainting3;
     const paintingMesh3 = new THREE.Mesh(painting3, paintingMat3);
-    paintingMesh3.scale.setScalar(0);
-    paintingMesh3.position.set(0.5, 1.5, 10);
-    scene.add(paintingMesh3);
+    paintingMat3.side = THREE.DoubleSide;
 
+    paintingMesh3.position.set(0.5, 1.5, 15);
+    scene.add(paintingMesh3);
+    let pointScreen = false;
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
+    let notAnimating = true;
     const handleMouseMove = (event: MouseEvent) => {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
       raycaster.setFromCamera(mouse, camera);
       laptop.updateMatrixWorld();
       const intersects = raycaster.intersectObject(laptop);
+
       if (intersects.length > 0) {
-        planeMesh.scale.set(1.5, 1.7, 1);
+        if (scrollPathPos > 0.985) {
+          if (notAnimating) {
+            notAnimating = false;
+            gsap.fromTo(
+              planeMesh.scale,
+              {
+                x: 0.75,
+                y: 0.75,
+                z: 0.75,
+              },
+              {
+                x: 0.8,
+                y: 0.8,
+                z: 0.8,
+                duration: 1,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+              }
+            );
+          }
+          pointScreen = true;
+        }
+      } else {
+        pointScreen = false;
       }
     };
+    const handleClick = () => {
+      if (pointScreen) {
+        window.open("https://the-shift-space.vercel.app/", "_blank");
+      }
+    };
+    window.addEventListener("click", handleClick);
 
     window.addEventListener("mousemove", handleMouseMove);
 
@@ -97,17 +137,32 @@ const ZoomIntoLaptopShiftSpace = () => {
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
+    //Set story text before the first scroll
+    setStoryText(
+      "Due to the corona pandemic, digital cultural areas are becoming more relevant. The resulting events, however, differ greatly from ‘normal’ cultural events and must be thought and implemented differently."
+    );
     let scrollTotal = 0;
-    const scrollSpeed = 0.1;
+    const scrollSpeed = 0.001;
     const scrollMin = 0;
     const scrollMax = 500;
     let scrollPathPos = 0;
-
+    let newStyle = null;
+    let scrollY = 0;
+    let rotationSpeed = 0;
+    const rotSpeed = 0.001;
     const handleWheel = (event: WheelEvent) => {
       event.preventDefault();
-      const deltaY = event.deltaY || event.detail || -event.wheelDelta;
+      scrollY = event.deltaY || event.detail || -event.wheelDelta;
+      scrollTotal += scrollY * 0.01;
+    };
 
-      scrollTotal += deltaY * scrollSpeed;
+    const domElement = renderer.domElement;
+    domElement.addEventListener("wheel", handleWheel, { passive: false });
+    let previousTime = 0;
+    const animate = () => {
+      const elapsedTime = clock.getElapsedTime();
+      const deltaTime = elapsedTime - previousTime;
+
       if (scrollTotal < 0) scrollTotal = 0;
       const clampedScroll = Math.max(
         scrollMin,
@@ -115,16 +170,10 @@ const ZoomIntoLaptopShiftSpace = () => {
       );
       scrollPathPos = (clampedScroll - scrollMin) / (scrollMax - scrollMin);
 
-      const pathT = Math.min(1, Math.max(0, scrollPathPos));
-      const camPos = path.getPointAt(pathT);
-      camera.position.copy(camPos);
-      const tangent = path.getTangentAt(pathT).normalize();
-      camera.lookAt(camPos.clone().add(tangent));
-      let newStyle = null;
       // Update story text based on scroll position
       if (scrollPathPos < 0.33) {
         setStoryText(
-          " Due to the corona pandemic, digital cultural areas are becoming more relevant. The resulting events, however, differ greatly from ‘normal’ cultural events and must be thought and implemented differently."
+          "Due to the corona pandemic, digital cultural areas are becoming more relevant. The resulting events, however, differ greatly from ‘normal’ cultural events and must be thought and implemented differently."
         );
         //SHOW FRAME 1
         // Adjust style dynamically based on scroll position
@@ -133,7 +182,7 @@ const ZoomIntoLaptopShiftSpace = () => {
         setStoryText(
           "In the shift space, users can explore the works of various artists by moving and looking around almost like in real life. The gallery comprises ten rooms in which nine artists are exhibited."
         );
-        paintingMesh2.scale.setScalar(2);
+
         //SHOW FRAME 1
         newStyle = `text-two`;
       } else {
@@ -141,18 +190,33 @@ const ZoomIntoLaptopShiftSpace = () => {
           "In order to enhance the experience of a typical analogue art exhibition we used the opportunities of the digital room. Above all, the change in the physics and space of the exhibition as well as the direct intervention in the movement and field of vision of the user enable the new experience a traditional exhibition couldn’t create."
         );
         newStyle = `text-three`;
-        paintingMesh3.scale.setScalar(4);
       }
-
       setTextStyle(newStyle);
-    };
 
-    const domElement = renderer.domElement;
-    domElement.addEventListener("wheel", handleWheel, { passive: false });
+      const pathT = Math.min(1, Math.max(0, scrollPathPos));
+      const camPos = path.getPointAt(pathT);
+      camera.position.copy(camPos);
+      const tangent = path.getTangentAt(pathT).normalize();
 
-    const animate = () => {
-      const t = scrollPathPos;
+      camera.lookAt(camPos.clone().add(tangent));
+      const rotSpeed = 1.5;
+      paintingMesh.rotation.x = Math.sin(elapsedTime * 0.01) * rotSpeed;
+      paintingMesh.rotation.y =
+        -Math.PI * 0.5 * Math.cos(elapsedTime * 0.01) * rotSpeed;
 
+      paintingMesh.rotation.x = Math.sin(elapsedTime * 0.01) * rotSpeed;
+      paintingMesh.rotation.y =
+        -Math.PI * 0.5 * Math.cos(elapsedTime * 0.01) * rotSpeed;
+
+      // paintingMesh2.rotation.x = rotSpeed * deltaTime;
+      // paintingMesh2.rotation.y = rotSpeed * deltaTime;
+      // paintingMesh2.rotation.z = rotSpeed * deltaTime;
+
+      // paintingMesh3.rotation.x = rotSpeed * deltaTime;
+      // paintingMesh3.rotation.y = rotSpeed * deltaTime;
+      // paintingMesh3.rotation.z = rotSpeed * deltaTime;
+
+      //LAPTOP Rotate screen with laptop
       planeMesh.rotation.x = laptop.rotation.x - 0.24;
       planeMesh.rotation.y = laptop.rotation.y;
       planeMesh.rotation.z = laptop.rotation.z;

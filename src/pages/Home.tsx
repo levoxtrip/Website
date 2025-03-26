@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <div>
       <Header />
-      {/* <ZoomIntoLaptopShiftSpace /> */}
-      <EISInteractiveCanvas />
+      <ZoomIntoLaptopShiftSpace />
+      {/* <EISInteractiveCanvas /> */}
       {/* <DisplaceGridHand /> */}
       {/* <T3WelcomeCanvas /> */}
       <ProjectsPage />

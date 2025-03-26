@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
-
 const EISInteractiveCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -305,12 +304,17 @@ const EISInteractiveCanvas = () => {
       boxGroup.add(screen);
     });
 
-    const pointL = new THREE.PointLight("#ffffff", 2);
-    pointL.position.set(0, 16, 0);
-    boxGroup.add(pointL);
+    const pointLight = new THREE.PointLight("#ff0000", 3);
+    pointLight.position.set(0, 2, 0);
+    boxGroup.add(pointLight);
+
+    const pointLightHelper = new THREE.PointLightHelper(pointLight, 1);
+    scene.add(pointLightHelper);
+
     boxGroup.position.set(0, 0, -420);
     boxGroup.rotation.y = -Math.PI * 0.5;
     scene.add(boxGroup);
+
     // Animate the particles to form iceberg
     function animateToIceberg(duration = 3) {
       if (!particlesRef.current || particlesRef.current.length === 0) {
@@ -476,7 +480,7 @@ const EISInteractiveCanvas = () => {
           moveCamera(
             {
               x: 0,
-              y: 8,
+              y: 6,
               z: -390,
             },
             15
@@ -506,9 +510,30 @@ const EISInteractiveCanvas = () => {
       }
       setTextStyle(newStyle);
     };
+    let scrollTotal = 0;
+    const handleWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      const deltaY = event.deltaY || event.detail || -event.wheelDelta;
+
+      if (clickTotal === 4) {
+        // Apply the delta directly to the camera position
+        const scrollDelta = deltaY * 0.001;
+
+        // Calculate new position
+        const newPosition = camera.position.z + scrollDelta;
+
+        // Clamp between -420 (forward limit) and -400 (backward limit)
+        camera.position.z = Math.max(-415, Math.min(-390, newPosition));
+
+        // Important: don't accumulate scrollTotal at all
+        // Remove this line: scrollTotal += deltaY * 0.001;
+      } else {
+        scrollTotal = 0;
+      }
+    };
 
     window.addEventListener("dblclick", handleDoubleClick);
-
+    window.addEventListener("wheel", handleWheel, { passive: false });
     const onWindowResize = () => {
       windowHalfX = window.innerWidth / 2;
       windowHalfY = window.innerHeight / 2;
