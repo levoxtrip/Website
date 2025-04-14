@@ -11,6 +11,17 @@ const ProjectTextSection = ({ project }: Props) => {
       <h1 className="proj-title">{project.title}</h1>
       <p className="proj-description">{project.description}</p>
 
+      {project.url?.trim() && (
+        <a
+          className="link-button"
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Link
+        </a>
+      )}
+
       <div className="technologies-detail">
         <h3>Technologies Used: </h3>
 

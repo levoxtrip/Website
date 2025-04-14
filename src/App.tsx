@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import ProjectsPage from './pages/ProjectsPage';
-import ProjectDetail from './pages/ProjectDetail';
-import NotFound from './pages/NotFound';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ProjectsPage from "./pages/ProjectsPage";
+import ProjectDetail from "./pages/ProjectDetail";
+import AboutMe from "./pages/AboutMe";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -11,14 +12,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:projectId" element={<ProjectDetail />} />
+        <Route path="/AboutMe" element={<AboutMe />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App
-
-    
-    
-    
+export default App;

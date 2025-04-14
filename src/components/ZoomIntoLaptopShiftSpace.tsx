@@ -27,18 +27,26 @@ const ZoomIntoLaptopShiftSpace = () => {
       200
     );
 
-    const ambientLight = new THREE.AmbientLight("white", 1.0);
+    const ambientLight = new THREE.AmbientLight("white", 8.0);
     scene.add(ambientLight);
 
     const texLoader = new THREE.TextureLoader();
     const plane = new THREE.PlaneGeometry(1.6, 0.9, 3, 3);
-    const planeMat = new THREE.MeshBasicMaterial();
+    const planeMat = new THREE.MeshToonMaterial();
     const textureScreen = texLoader.load("./img/shift_space/Button.png");
     planeMat.map = textureScreen;
     planeMat.transparent = true;
     const planeMesh = new THREE.Mesh(plane, planeMat);
     planeMesh.scale.set(0.75, 0.75, 0.75);
     scene.add(planeMesh);
+
+    const plane2 = new THREE.PlaneGeometry(3.2, 1.8, 3, 3);
+    const planeMat2 = new THREE.MeshBasicMaterial();
+    const textureScreen2 = texLoader.load("./img/shift_space/BGScreen.JPG");
+    planeMat2.map = textureScreen2;
+    const planeMesh2 = new THREE.Mesh(plane2, planeMat2);
+    planeMesh2.scale.set(0.8, 0.8, 0.8);
+    scene.add(planeMesh2);
 
     const clock = new THREE.Clock();
 
@@ -49,34 +57,41 @@ const ZoomIntoLaptopShiftSpace = () => {
       scene.add(gltf.scene);
     });
 
-    const painting1 = new THREE.PlaneGeometry(1.6, 0.9, 3, 3);
-    const paintingMat = new THREE.MeshBasicMaterial();
+    let paintingG1 = new THREE.Group();
+    loader.load("src/assets/Painintg1.glb", (gltf) => {
+      paintingG1 = gltf.scene;
+      paintingG1.rotation.y = -Math.PI * 0.5;
+      paintingG1.rotation.x = 0;
+      paintingG1.position.set(-2, -1, 30);
+      scene.add(gltf.scene);
+    });
 
-    const texturePainting = texLoader.load("./img/transmorphosis/1_s.jpg");
-    paintingMat.map = texturePainting;
-    paintingMat.side = THREE.DoubleSide;
-    const paintingMesh = new THREE.Mesh(painting1, paintingMat);
-    paintingMesh.position.set(-0.45, -1.5, 30);
-    scene.add(paintingMesh);
-    const painting2 = new THREE.PlaneGeometry(0.9, 1.6, 3, 3);
-    const paintingMat2 = new THREE.MeshBasicMaterial();
-    paintingMat2.side = THREE.DoubleSide;
-    const texturePainting2 = texLoader.load("./img/transmorphosis/1_s.jpg");
-    paintingMat2.map = texturePainting2;
-    const paintingMesh2 = new THREE.Mesh(painting2, paintingMat2);
+    let paintingG2 = new THREE.Group();
+    loader.load("src/assets/Painintg2.glb", (gltf) => {
+      paintingG2 = gltf.scene;
 
-    paintingMesh2.position.set(1.5, -0.5, 25);
-    scene.add(paintingMesh2);
+      paintingG2.position.set(0, -1, 10);
+      scene.add(gltf.scene);
+    });
 
-    const painting3 = new THREE.PlaneGeometry(1.6, 0.9, 3, 3);
-    const paintingMat3 = new THREE.MeshBasicMaterial();
-    const texturePainting3 = texLoader.load("./img/transmorphosis/1_s.jpg");
-    paintingMat3.map = texturePainting3;
-    const paintingMesh3 = new THREE.Mesh(painting3, paintingMat3);
-    paintingMat3.side = THREE.DoubleSide;
+    let firstFrameRoom = new THREE.Group();
+    let secondFrameRoom = new THREE.Group();
+    let thirdFrameRoom = new THREE.Group();
+    let paintingG3 = new THREE.Group();
+    loader.load("src/assets/galleryOneRoom.glb", (gltf) => {
+      paintingG3 = gltf.scene;
 
-    paintingMesh3.position.set(0.5, 1.5, 15);
-    scene.add(paintingMesh3);
+      paintingG3.position.set(0.2, -0.8, 25);
+      scene.add(gltf.scene);
+
+      firstFrameRoom = paintingG3.getObjectByName("firstFrameRoom");
+      secondFrameRoom = paintingG3.getObjectByName("SecondFrameRoom");
+      thirdFrameRoom = paintingG3.getObjectByName("ThirdFrameRoom");
+    });
+
+    const pointLight = new THREE.PointLight("white", 2.0);
+    pointLight.position.copy(laptop.position);
+
     let pointScreen = false;
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
@@ -142,14 +157,12 @@ const ZoomIntoLaptopShiftSpace = () => {
       "Due to the corona pandemic, digital cultural areas are becoming more relevant. The resulting events, however, differ greatly from ‘normal’ cultural events and must be thought and implemented differently."
     );
     let scrollTotal = 0;
-    const scrollSpeed = 0.001;
     const scrollMin = 0;
     const scrollMax = 500;
     let scrollPathPos = 0;
     let newStyle = null;
     let scrollY = 0;
-    let rotationSpeed = 0;
-    const rotSpeed = 0.001;
+
     const handleWheel = (event: WheelEvent) => {
       event.preventDefault();
       scrollY = event.deltaY || event.detail || -event.wheelDelta;
@@ -198,23 +211,34 @@ const ZoomIntoLaptopShiftSpace = () => {
       camera.position.copy(camPos);
       const tangent = path.getTangentAt(pathT).normalize();
 
-      camera.lookAt(camPos.clone().add(tangent));
+      if (scrollPathPos < 0.5) {
+        camera.lookAt(camPos.clone().add(tangent));
+      }
       const rotSpeed = 1.5;
-      paintingMesh.rotation.x = Math.sin(elapsedTime * 0.01) * rotSpeed;
-      paintingMesh.rotation.y =
-        -Math.PI * 0.5 * Math.cos(elapsedTime * 0.01) * rotSpeed;
+      // paintingMesh.rotation.x = Math.sin(elapsedTime * 0.01) * rotSpeed;
+      // paintingMesh.rotation.y =
+      //   -Math.PI * 0.5 * Math.cos(elapsedTime * 0.01) * rotSpeed;
 
-      paintingMesh.rotation.x = Math.sin(elapsedTime * 0.01) * rotSpeed;
-      paintingMesh.rotation.y =
-        -Math.PI * 0.5 * Math.cos(elapsedTime * 0.01) * rotSpeed;
+      // paintingMesh.rotation.x = Math.sin(elapsedTime * 0.01) * rotSpeed;
+      // paintingMesh.rotation.y =
+      //   -Math.PI * 0.5 * Math.cos(elapsedTime * 0.01) * rotSpeed;
+      // paintingG1.rotation.x = rotSpeed * deltaTime * 0.2;
+      // paintingG1.rotation.y = -rotSpeed * deltaTime * 0.2;
+      // paintingG1.rotation.z = -rotSpeed * deltaTime * 0.2;
 
-      // paintingMesh2.rotation.x = rotSpeed * deltaTime;
-      // paintingMesh2.rotation.y = rotSpeed * deltaTime;
-      // paintingMesh2.rotation.z = rotSpeed * deltaTime;
+      firstFrameRoom.rotation.x = rotSpeed * deltaTime * 0.1;
+      secondFrameRoom.rotation.y = -rotSpeed * deltaTime * 0.1;
+      thirdFrameRoom.rotation.z = rotSpeed * deltaTime * 0.1;
 
-      // paintingMesh3.rotation.x = rotSpeed * deltaTime;
-      // paintingMesh3.rotation.y = rotSpeed * deltaTime;
-      // paintingMesh3.rotation.z = rotSpeed * deltaTime;
+      paintingG1.rotation.y =
+        -Math.PI * 0.5 + Math.sin(rotSpeed * deltaTime * 0.2) * 0.31;
+      paintingG1.rotation.x = Math.cos(rotSpeed * deltaTime * 0.2) * 0.31;
+
+      paintingG2.rotation.x = rotSpeed * deltaTime * 0.1;
+      paintingG2.rotation.y = -rotSpeed * deltaTime * 0.1;
+      paintingG2.rotation.z = rotSpeed * deltaTime * 0.1;
+      paintingG2.scale.x = 0.2 + Math.sin(elapsedTime * 0.1);
+      paintingG2.scale.y = 0.2 + Math.cos(200 + elapsedTime * 0.1);
 
       //LAPTOP Rotate screen with laptop
       planeMesh.rotation.x = laptop.rotation.x - 0.24;
@@ -223,7 +247,15 @@ const ZoomIntoLaptopShiftSpace = () => {
 
       planeMesh.position.x = laptop.position.x + 0.34;
       planeMesh.position.y = laptop.position.y + 1.32;
-      planeMesh.position.z = laptop.position.z - 0.65;
+      planeMesh.position.z = laptop.position.z - 0.55;
+
+      planeMesh2.rotation.x = laptop.rotation.x - 0.24;
+      planeMesh2.rotation.y = laptop.rotation.y;
+      planeMesh2.rotation.z = laptop.rotation.z;
+
+      planeMesh2.position.x = laptop.position.x + 0.34;
+      planeMesh2.position.y = laptop.position.y + 1.32;
+      planeMesh2.position.z = laptop.position.z - 0.65;
 
       controls.update();
       renderer.render(scene, camera);

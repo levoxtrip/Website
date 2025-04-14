@@ -17,7 +17,7 @@ const DisplaceGridHand = () => {
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0xefd1b5, 0.0025);
+    scene.fog = new THREE.FogExp2(0x000000, 0.0125);
     const camera = new THREE.PerspectiveCamera(
       50,
       window.innerWidth / window.innerHeight,

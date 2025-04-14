@@ -5,7 +5,7 @@
 }
 
 @layer base {
-  * {
+  body {
     @apply bg-gray-200;
   }
 
@@ -22,8 +22,27 @@
 }
 
 @layer components {
+  .prev-proj-info {
+    @apply text-left flex-wrap p-5 relative flex flex-col min-h-[250px];
+  }
+
+  
+  /* Position technologies at the bottom */
+  .technologies-thumb {
+    @apply flex flex-wrap absolute bottom-0 left-0 m-4;
+  }
+
+
+
+  .footer {
+    @apply py-10
+  }
   .welcome-canvas {
     @apply w-screen max-w-none mx-0 px-0 relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw];
+  }
+
+  .header-text {
+    @apply text-left text-3xl text-black font-bold uppercase italic;
   }
 
   .standard-hero-img {
@@ -38,8 +57,26 @@
     @apply grid sm:grid-cols-2 gap-4 rounded;
   }
 
+  .tech-button {
+    @apply text-2xl bg-black text-white font-bold uppercase italic md:px-4 pr-3 mx-2;
+  }
+
+  .active-tech {
+    @applx bg-white text-2xl text-black font-bold;
+  }
+  .not-active-tech {
+    @apply bg-black text-2xl text-white font-bold;
+  }
+
   .back-button {
-    @apply fixed top-10 left-10 bg-red-500 rounded-md p-3;
+    @apply fixed w-full md:w-15 h-15 bottom-[0%] md:bottom-[50%] left-0;
+  }
+
+  .back-button button {
+    @apply w-full h-full text-3xl bg-black text-white font-bold p-2 cursor-pointer;
+  }
+  .link-button {
+    @apply text-2xl bg-black text-white font-bold uppercase italic md:px-4 pr-3 mx-2 inline-block;
   }
 
   .prev-proj-title {
@@ -59,6 +96,9 @@
   .technologies-detail {
     @apply flex flex-col py-10;
   }
+  .intro-sections {
+    @apply flex flex-wrap text-left;
+  }
 
   .project-prev {
     @apply grid md:grid-cols-2 my-10;
@@ -66,6 +106,25 @@
 
   .video-container {
     @apply m-10 flex flex-wrap;
+  }
+  .video-iframe {
+    @apply w-full md:w-[70%] mx-auto aspect-video;
+  }
+
+  .textLink {
+    @apply font-bold uppercase italic;
+  }
+
+  .project-thumb-btn img {
+    @apply object-cover;
+  }
+
+  .project-thumb-btn:hover {
+    @apply overflow-hidden;
+  }
+  .project-thumb:hover {
+    @apply text-red-500 transition-all duration-300;
+    filter: invert(100%);
   }
 
   /* .project-thumb-btn{
@@ -120,7 +179,7 @@
  */
 
 #root {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;

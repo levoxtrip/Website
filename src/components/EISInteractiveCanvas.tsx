@@ -312,6 +312,7 @@ const EISInteractiveCanvas = () => {
     scene.add(pointLightHelper);
 
     boxGroup.position.set(0, 0, -420);
+    boxGroup.scale.set(0, 0, 0);
     boxGroup.rotation.y = -Math.PI * 0.5;
     scene.add(boxGroup);
 
@@ -406,6 +407,7 @@ const EISInteractiveCanvas = () => {
       if (clickTotal < 3) {
         target = new THREE.Vector3(0, 0, 0);
       } else {
+        boxGroup.scale.set(1, 1, 1);
         target = new THREE.Vector3(0, 0, -420);
       }
       gsap.to(camera.position, {
@@ -518,7 +520,7 @@ const EISInteractiveCanvas = () => {
       if (clickTotal === 4) {
         // Apply the delta directly to the camera position
         const scrollDelta = deltaY * 0.001;
-
+        console.log(scrollDelta);
         // Calculate new position
         const newPosition = camera.position.z + scrollDelta;
 
