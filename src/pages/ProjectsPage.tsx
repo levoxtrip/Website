@@ -1,5 +1,5 @@
 // pages/ProjectsPage.tsx
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../assets/data/projects";
 import AnimatedFilterBtns from "../components/AnimatedFilterBtns";
@@ -33,6 +33,11 @@ const ProjectsPage: React.FC = () => {
   const handleAnyButtonClick = () => {
     console.log("handle button click");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
   
   return (
     <div className="projects-page">
