@@ -1,26 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// IntroSections.jsx - UPDATED VERSION
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import ThreeDProjectThumbnail from "./ThreeDProjectThumbnail";
 
 // Import different shaders
-import basicVertexShader from "./shaders/basic.vert";
-import hoverDisplaceVertexShader from "./shaders/hoverDisplace.vert"
-import orthographicShiftVertexShader from "./shaders/orthographicShift.vert";
-// import stackEffectFragmentShader from "./shaders/stackEffect.frag";
-import waveEffectFragmentShader from "./shaders/waveEffect.frag";
-// import pixelTransitionFragmentShader from "./shaders/pixelTransition.frag";
-import tunnelEffectFragmentShader from "./shaders/tunnelEffect.frag"
+import hoverDisplaceVertexShader from "./shaders/hoverDisplace.vert";
+import tunnelEffectFragmentShader from "./shaders/tunnelEffect.frag";
 
 const IntroSections = () => {
+  // Get current location from React Router
+  const location = useLocation();
+  
+  // Use a state variable to force remounting of ThreeJS components
+  const [key, setKey] = React.useState(0);
+  
+  // When location changes, force remount of ThreeJS components
+  useEffect(() => {
+    // Force remount of Three.js components
+    setKey(prevKey => prevKey + 1);
+  }, [location]);
+
   return (
     <div className="intro-sections">
       <div className="projects-grid">
         <div className="project-prev">
           <Link to={"/Projects"} className="thumbnail-container">
+            {/* Add key to force remount */}
             <ThreeDProjectThumbnail 
-              imageUrl="/Website/img/mh/MA-AR1.png"
-              vertexShader={basicVertexShader}
-              fragmentShader={waveEffectFragmentShader}
+              key={`projects-thumbnail-${key}`}
+              imageUrl="Website/img/OverviewThumbnail.png" // Fix path (removed 'public')
+              vertexShader={hoverDisplaceVertexShader}
+              fragmentShader={tunnelEffectFragmentShader}
             />
           </Link>
           <div className="prev-proj-info">
@@ -41,8 +51,10 @@ const IntroSections = () => {
             <p>Learn about my journey, vision, and expertise.</p>
           </div>
           <Link to={"/AboutMe"} className="thumbnail-container">
+            {/* Add key to force remount */}
             <ThreeDProjectThumbnail 
-              imageUrl="/Website/img/mh/MA-AR1.png"
+              key={`aboutme-thumbnail-${key}`}
+              imageUrl="Website/img/lxt3.jpg" // Fix path (removed 'public')
               vertexShader={hoverDisplaceVertexShader}
               fragmentShader={tunnelEffectFragmentShader}
               uniforms={{

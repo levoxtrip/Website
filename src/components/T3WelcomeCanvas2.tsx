@@ -311,7 +311,7 @@ const T3WelcomeCanvas2 = () => {
           <p className="hovered-box-info-text">
             {projects[hoveredBox].shortDescription}
           </p>
-          <p className="hovered-box-info-btn">Click to view project</p>
+          <p className="hovered-box-info-btn">Click the box to view project</p>
         </div>
       )}
     </div>
