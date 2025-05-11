@@ -168,7 +168,28 @@ LiDAR sensor system that captures the player movements, translating them into re
    
 
     url: "https://www.youtube.com/playlist?list=PLRXS5GZAC6Y97lHwbsQQThB6DAodtBnOG",
+  },  {
+    id: "GemeindeEntdecken",
+    title: "Gemeinde Entdecken",
+    shortDescription: `"Gemeinde Entdecken" transforms local history and culture into an accessible, engaging experience for citizens, newcomers, and visitors alike.`,
+    description: `
+    "Gemeinde Entdecken" transforms local history and culture into an accessible, engaging experience for citizens, newcomers, and visitors alike. This innovative digital companion leads users through carefully curated routes highlighting the most significant cultural landmarks, bringing to life the unique stories, traditions, and distinctive features that make your community special.
+
+The experience unfolds through a seamless smartphone-based platform requiring no app installation, making local heritage instantly accessible to everyone. When participants scan the strategically placed QR codes found throughout the community and on promotional materials, they're immediately immersed in an interactive journey tailored specifically to your locality.
+
+The technology behind Nils emphasizes inclusivity through customizable language options, ensuring international visitors and new residents can fully engage with and understand your community's heritage. As participants walk between designated locations, they discover fascinating histories and cultural significance through both visual and audio content delivered directly to their smartphones.
+
+This self-guided format allows for exploration at individual pace and preference—whether solo or in groups—democratizing access to cultural knowledge without the constraints of scheduled tour times. Each stop along the journey reveals another layer of your community's unique identity, fostering deeper connection and appreciation among all who participate in this digital cultural expedition.`,
+    technologies: ["React"],
+    layout: "standard",
+    thumbnailUrl: "/img/gemeinde_1.png",
+    detailImages: [
+      "/img/gemeinde_2.png",
+      "/img/gemeinde_3.png",
+    ],
+    url: "https://gemeinde-entdecken-tour.vercel.app/",
   },
+
 
   {
     id: "ReFracta",
