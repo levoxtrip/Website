@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+// components/AnimatedFilterBtns.tsx
+import { useState } from "react";
 import { motion } from "framer-motion";
+
+// Interface defining the expected props
+interface AnimatedFilterBtnsProps {
+  onFilterChange: (selectedFilters: string[]) => void;
+  onButtonClick?: (item: string) => void;
+  onExpandToggle?: (isExpanded: boolean) => void;
+  items: string[];
+}
 
 const AnimatedFilterBtns = ({
   onFilterChange,
   onButtonClick,
   onExpandToggle,
   items,
-}) => {
+}: AnimatedFilterBtnsProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedTech, setSelectedTech] = useState("All");
 
@@ -21,18 +30,23 @@ const AnimatedFilterBtns = ({
 
     // Call the general click callback if provided
     if (onButtonClick) {
-      onButtonClick("main", newExpandedState);
+      // Fix: Only pass one parameter
+      onButtonClick("main");
     }
   };
 
-  const selectTech = (tech) => {
+  const selectTech = (tech: string) => {
     setSelectedTech(tech);
     setIsExpanded(false);
+    
+    // Fix: Pass an array with the selected tech
     if (onFilterChange) {
-      onFilterChange(tech);
+      onFilterChange([tech]);
     }
+    
     if (onButtonClick) {
-      onButtonClick(tech, isExpanded);
+      // Fix: Only pass one parameter
+      onButtonClick(tech);
     }
 
     if (tech === "All") {
@@ -46,7 +60,7 @@ const AnimatedFilterBtns = ({
   const buttonSpacing = 0;
 
   const buttonVariants = {
-    expanded: (i) => ({
+    expanded: (i: number) => ({
       opacity: 1,
       y: buttonSpacing * (i + 1),
       transition: {
@@ -56,7 +70,7 @@ const AnimatedFilterBtns = ({
         delay: i * 0.015,
       },
     }),
-    collapsed: (i) => ({
+    collapsed: (i: number) => ({
       opacity: 0,
       x: 0,
       transition: {
@@ -80,6 +94,7 @@ const AnimatedFilterBtns = ({
         >
           {isExpanded ? "All" : "Sort"}
         </motion.button>
+        
         {/* Expanded buttons */}
         {isExpanded && (
           <div className="flex flex-col">
@@ -111,4 +126,5 @@ const AnimatedFilterBtns = ({
     </div>
   );
 };
+
 export default AnimatedFilterBtns;

@@ -8,7 +8,7 @@ const ProjectDetailMediaSection = ({ project }: Props) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleImageClick = (index) => {
+  const handleImageClick = (index:number) => {
     setCurrentImageIndex(index);
     setIsModalOpen(true);
   };
@@ -24,9 +24,13 @@ const ProjectDetailMediaSection = ({ project }: Props) => {
   };
 
   const goToNext = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex < project.detailImages.length - 1 ? prevIndex + 1 : prevIndex
-    );
+    setCurrentImageIndex((prevIndex) => {
+      // Add null/undefined check
+      if (!project.detailImages) return prevIndex;
+      
+      // Now TypeScript knows detailImages exists
+      return prevIndex < project.detailImages.length - 1 ? prevIndex + 1 : prevIndex;
+    });
   };
 
 

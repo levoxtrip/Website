@@ -13,5 +13,6 @@ export interface ProjectData {
   videoUrl?: string;
   demoUrl?: string;
   url?: string;
+  githubUrl?:string;
   // Add any other fields specific to your projects
 }

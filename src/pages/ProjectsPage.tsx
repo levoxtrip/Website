@@ -1,5 +1,5 @@
 // pages/ProjectsPage.tsx
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../assets/data/projects";
 import AnimatedFilterBtns from "../components/AnimatedFilterBtns";
@@ -21,9 +21,12 @@ const ProjectsPage: React.FC = () => {
           project.technologies.includes(selectedTech)
         );
 
-  const handleFilterChange = (tech) => {
+  // Fixed: Changed parameter type from string to string[]
+  const handleFilterChange = (selectedFilters: string[]) => {
+    // Take the first filter from the array or default to "All"
+    const tech = selectedFilters.length > 0 ? selectedFilters[0] : "All";
     setSelectedTech(tech);
-    console.log("set current filter");
+    console.log("set current filter to", tech);
   };
   
   const handleExpandToggle = () => {
@@ -36,7 +39,7 @@ const ProjectsPage: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
   
   
   return (

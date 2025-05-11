@@ -1,6 +1,6 @@
 import React from "react";
 import { ProjectData } from "../../types/project";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import ProjectTextSection from "../ProjectTextSection";
 import ProjectDetailMediaSection from "../ProjectDetailMediaSection";
 import Footer from "../Footer";
@@ -10,10 +10,10 @@ interface StandardLayoutProps {
 }
 
 export const StandardLayout: React.FC<StandardLayoutProps> = ({ project }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div className="standard-layout">
-      <BackBtn to={"/projects"} />
+      <BackBtn to={"/projects"} text={"←"} />
       <img className="standard-hero-img" src={`${project.thumbnailUrl}`}></img>
 
       <ProjectTextSection project={project} />

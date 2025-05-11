@@ -1,6 +1,6 @@
 import React from "react";
 import { ProjectData } from "../../types/project";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import BackBtn from "../BackBtn";
 import ProjectTextSection from "../ProjectTextSection";
 import ProjectDetailMediaSection from "../ProjectDetailMediaSection";
@@ -11,7 +11,7 @@ interface VideoLayoutProps {
 }
 
 export const VideoLayout: React.FC<VideoLayoutProps> = ({ project }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div className="video-layout">
       <Header/>

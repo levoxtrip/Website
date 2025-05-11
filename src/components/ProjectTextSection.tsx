@@ -1,4 +1,4 @@
-import React from "react";
+
 import { ProjectData } from "../types/project";
 
 interface Props {

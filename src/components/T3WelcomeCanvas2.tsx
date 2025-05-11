@@ -114,10 +114,13 @@ const T3WelcomeCanvas2 = () => {
 
     // Animation function to move boxes randomly
     const animateBoxes = () => {
-      boxes.forEach((box, index) => {
+      boxes.forEach((box) => {
+        // Fix: Removed unused 'index' parameter
         // Pick a random axis
         const axis = ["x", "y", "z"][Math.floor(Math.random() * 3)];
-        const target = {};
+        
+        // Fix: Properly type the target object with index signature
+        const target: { [key: string]: number } = {};
         target[axis] = (Math.random() - 0.5) * 10;
 
         // Animate to new position
@@ -145,7 +148,8 @@ const T3WelcomeCanvas2 = () => {
     animateBoxes();
 
     // Mouse event handlers
-    const handleMouseMove = (event) => {
+    // Fix: Added type for event parameter
+    const handleMouseMove = (event: MouseEvent) => {
       const rect = canvasRef.current?.getBoundingClientRect();
       if (!rect) return;
 

@@ -1,21 +1,34 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
+
+interface ThreeDProjectThumbnailProps {
+  imageUrl: string;
+  vertexShader: string;
+  fragmentShader: string;
+  uniforms?: {
+    [uniform: string]: {
+      value: any;
+      type?: string;
+    };
+  };
+}
 
 const ThreeDProjectThumbnail = ({ 
   imageUrl, 
   vertexShader, 
   fragmentShader,
   uniforms: customUniforms = {} 
-}) => {
-  const containerRef = useRef(null);
-  const sceneRef = useRef(null);
-  const cameraRef = useRef(null);
-  const rendererRef = useRef(null);
-  const materialRef = useRef(null);
-  const requestRef = useRef(null);
-  const isHoveredRef = useRef(false);
-  const mouseRef = useRef({ x: 0.5, y: 0.5 }); // Default to center
-  const hoverStartTimeRef = useRef(0); // Track when hover starts
+}: ThreeDProjectThumbnailProps) => {
+  // Properly typed refs to fix "Property does not exist on type 'never'" errors
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.OrthographicCamera | null>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const materialRef = useRef<THREE.ShaderMaterial | null>(null);
+  const requestRef = useRef<number | null>(null);
+  const isHoveredRef = useRef<boolean>(false);
+  const mouseRef = useRef<{ x: number; y: number }>({ x: 0.5, y: 0.5 }); // Default to center
+  const hoverStartTimeRef = useRef<number>(0); // Track when hover starts
   
   // Track container dimensions
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -179,7 +192,7 @@ const ThreeDProjectThumbnail = ({
       isHoveredRef.current = false;
     };
     
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current && isHoveredRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         // Calculate normalized coordinates (0 to 1)
@@ -204,7 +217,7 @@ const ThreeDProjectThumbnail = ({
         containerRef.current.removeEventListener('mousemove', handleMouseMove);
       }
       
-      if (requestRef.current) {
+      if (requestRef.current !== null) {
         cancelAnimationFrame(requestRef.current);
       }
       
