@@ -8,7 +8,7 @@ import Impressum from "./pages/Impressum";
 
 function App() {
   return (
-    <BrowserRouter basename="/Website">
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<ProjectsPage />} />
