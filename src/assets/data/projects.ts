@@ -4,31 +4,15 @@ export const projects: ProjectData[] = [
   {
     id: "CBW",
     title: "Cornelius Blackwood",
-    shortDescription: `"Cornelius Blackwood und das tödliche Geheimnis" is a city escape game with android.`,
+    shortDescription: `"Cornelius Blackwood" turns the Dümmer See into the backdrop for an urgent counter-terrorism mission. This experience combines espionage with environmental storytelling as players race to prevent ecological disaster.`,
     description: `
-        "Cornelius Blackwood und das tödliche Geheimnis" is a high-stakes outdoor adventure game that transforms the picturesque Dümmer See region into the backdrop for an urgent counter-terrorism mission.
-              This thrilling interactive experience combines espionage, puzzle-solving, and environmental awareness, creating an immersive adventure for participants who must race against time to prevent ecological disaster
-          
-              In this gripping narrative, players join forces with the mysterious Cornelius Blackwood to infiltrate and thwart the plans of Hydra, a ruthless organization threatening to unleash a dangerous pathogen via explosive device.
-              This biological weapon would devastate the unique ecosystem of Dümmer See and endanger all living beings in the area.
-              As undercover agents, participants must gather critical intelligence and evidence about Hydra's sinister plot while navigating through the natural beauty of the lake region.
-       
-              Equipped with GPS-enabled devices, teams receive real-time guidance and communication from Cornelius Blackwood as they progress through their mission.
-              The GPS tracker not only navigates players to significant locations but also triggers new mission developments, intelligence briefings, and challenges as they approach each waypoint.
-              This dynamic location-based technology ensures the adventure unfolds seamlessly, deepening immersion as agents advance through each phase of their operation.
-        
-              The experience features strategically designed puzzles and challenges that test participants' problem-solving abilities, observation skills, and teamwork.
-              Each checkpoint presents unique obstacles that must be overcome to gather essential intelligence, decode encrypted messages, or neutralize Hydra's operations.
-              The diverse puzzle mechanics ensure that every station feels distinct and engaging, maintaining tension throughout the mission.
-         
-              Through augmented reality elements, the natural environment transforms into an operational field where digital and physical realities merge.
-              Players use their devices to scan for hidden clues, decrypt surveillance data, and visualize potential threat scenarios.
-              This technological integration enhances the immersive quality of the experience while highlighting the environmental significance of the Dümmer See ecosystem.
-        
-              As the mission progresses, players develop a deeper appreciation for the natural beauty and ecological importance of Dümmer See.
-              The narrative subtly weaves environmental awareness into the espionage thriller, creating an educational undercurrent that emphasizes conservation and protection of natural resources.
-              "Cornelius Blackwood und das tödliche Geheimnis" delivers an adrenaline-pumping adventure that combines technological innovation, collaborative problem-solving, and environmental consciousness.
-              This unique outdoor experience transforms players from casual visitors into essential operatives working to save a precious natural landmark from catastrophe.
+"Cornelius Blackwood und das tödliche Geheimnis" transforms the picturesque Dümmer See region into the backdrop for an urgent counter-terrorism mission. This thrilling interactive experience combines espionage, puzzle-solving, and environmental awareness as players join forces with the mysterious Cornelius Blackwood to infiltrate and thwart Hydra, a ruthless organization threatening to unleash a dangerous pathogen that would devastate the ecosystem.
+
+The immersive adventure utilizes GPS-enabled devices that provide real-time guidance and communication from Cornelius Blackwood. This dynamic location-based technology triggers new mission developments, intelligence briefings, and challenges as participants approach each waypoint, ensuring the adventure unfolds seamlessly and deepening immersion as agents advance through their operation.
+
+The interaction design features strategically designed puzzles that test problem-solving abilities, observation skills, and teamwork. Each checkpoint presents unique obstacles through diverse mechanics, maintaining tension throughout the mission. Augmented reality elements seamlessly blend digital and physical realities, allowing players to scan for hidden clues, decrypt surveillance data, and visualize threat scenarios.
+
+Captivating storytelling drives this high-stakes mission, creating a memorable experience that subtly weaves environmental awareness into an espionage thriller. As the operation progresses, players develop a deeper appreciation for the natural beauty and ecological importance of Dümmer See, transforming from casual visitors into essential operatives working to save a precious natural landmark from catastrophe.
      
 `,
     technologies: ["Unity", "AR"],
@@ -47,30 +31,15 @@ export const projects: ProjectData[] = [
   {
     id: "BDZ",
     title: "Buch der Zeit",
-    shortDescription: `"Buch der Zeit" is a city escape game with android.`,
+    shortDescription: `"Buch der Zeit" brings Bocholt's rich history to life through interactive storytelling and puzzle-solving. Players become guardians of the city's past, using the "Kompass der Zeit" to navigate through different historical epochs.`,
     description: `
-         "Buch der Zeit" is an innovative outdoor historical exploration tour that brings the rich history of Bocholt to life through interactive storytelling and puzzle-solving.
-              This engaging experience invites participants to become active guardians of the city's past, combining educational content with modern technology to create a memorable adventure.
-        
-              Set against the backdrop of Bocholt's historic sites, players join forces with Archivist Dr. Hans Meier on an urgent mission: to preserve the city's fading memories and stories before they're lost to time.
-              As time relentlessly marches forward, valuable pieces of Bocholt's heritage are at risk of disappearing forever.
-              Players visit various historical locations throughout the city, completing challenges to recover and safeguard important knowledge for future generations.
-    
-              Equipped with the "Kompass der Zeit" (Compass of Time) as their guide, participants navigate through different epochs of Bocholt's history.
-              The digital companion leads them to significant historical sites where interactive challenges await.
-              As players approach each location, new chapters of Bocholt's story unfold automatically through GPS-triggered content, creating a seamless and immersive historical journey.
-     
-              The experience features diverse puzzle mechanics that keep the adventure fresh and engaging at each stop. These challenges are thoughtfully designed to deepen participants' understanding of Bocholt's past while providing new perspectives on the city's historical narrative.
-              Each station combines visual, auditory, and tactile elements, ensuring a multifaceted and stimulating learning experience.
-  
-              Advanced augmented reality technology enhances the immersion, allowing players to interact with Bocholt's history in unprecedented ways.
-              Using image detection, the app places 3D historical objects in the environment and triggers context-sensitive puzzles.
-              This transforms the cityscape into a living historical document where solving each challenge contributes to the restoration of Bocholt's collective memory.
-              Throughout the journey, Dr. Meier communicates with participants via the "Kommunikator," offering guidance, historical context, and encouragement.
-              This ongoing connection adds urgency and purpose to the mission as players race against time to fill the "Book of Knowledge" and preserve Bocholt's heritage for future generations.
-     
-              "Buch der Zeit" represents a perfect blend of educational content, technological innovation, and gamified learning, creating a unique way for residents and visitors alike to connect with Bocholt's rich historical tapestry.
-              This project was developed in Unity, bringing together the power of location-based services, augmented reality, and interactive storytelling.
+        "Buch der Zeit" brings Bocholt's rich history to life through interactive storytelling and puzzle-solving. This engaging experience invites participants to become active guardians of the city's past, joining forces with Archivist Dr. Hans Meier on an urgent mission to preserve Bocholt's fading memories and stories before they're lost to time. Players visit various historical locations, completing challenges to recover and safeguard important knowledge for future generations.
+
+The immersive journey unfolds through the "Kompass der Zeit" (Compass of Time), which guides participants through different epochs of Bocholt's history. As players approach each significant historical site, new chapters of Bocholt's story unfold automatically through GPS-triggered content, creating a seamless historical exploration that deepens understanding of the city's past.
+
+The interaction design features diverse puzzle mechanics that keep the adventure fresh and engaging at each stop. These thoughtfully designed challenges provide new perspectives on the city's historical narrative through a combination of visual, auditory, and tactile elements, ensuring a multifaceted and stimulating learning experience for all participants.
+
+Advanced augmented reality technology enhances immersion by allowing players to interact with Bocholt's history in unprecedented ways. Image detection places 3D historical objects in the environment and triggers context-sensitive puzzles, transforming the cityscape into a living historical document. Dr. Meier's ongoing communication creates a memorable experience that blends educational content with gamified learning, connecting residents and visitors alike with Bocholt's rich historical tapestry.
      
 `,
     technologies: ["Unity", "AR"],
@@ -86,38 +55,20 @@ export const projects: ProjectData[] = [
       "/Website/img/mh/BOCH-05.png",
       "/Website/img/mh/BOCH-06.png",
     ],
+    url:"https://mission-house.de/city-tour-bocholt/"
   },
   {
     id: "Honka",
     title: "Fritz Honka",
-    shortDescription: `"Fritz Honka der Frauen" is a city escape game with android.`,
+    shortDescription: `"Fritz Honka" transforms Hamburg's red-light district into an immersive investigative experience where participants become detectives working with Commissioner Hansen. This interactive journey challenges players to solve one of Germany's most notorious serial killer cases before time runs out.`,
     description: `
-         "Fritz Honka - Der Frauenmörder von St. Pauli" is a chilling true crime outdoor tour that transforms Hamburg's infamous red-light district into an immersive investigative experience.
-              This meticulously crafted journey plunges participants into one of Germany's most notorious serial killer cases, combining historical accuracy with interactive gameplay to create a captivating exploration of dark history.
-        
-              Set against the backdrop of 1970s St. Pauli, this tour invites participants to step into the shoes of police investigators working alongside Commissioner Hansen on a time-sensitive case.
-              The notorious Fritz Honka, responsible for a series of gruesome murders that terrorized Hamburg, stands at the center of this harrowing investigation.
-              With the trial already underway and crucial evidence still missing, players must navigate the shadowy streets of St. Pauli to uncover the final pieces of evidence before more victims fall to Honka's disturbing patterns of violence.
-       
-              Participants receive Android tablets equipped with sophisticated GPS tracking technology that serves as their primary investigative tool.
-              As they venture through St. Pauli's historic locations, the tablet automatically triggers location-specific content, seamlessly unveiling new chapters of the investigation.
-              Each approaching waypoint activates fresh narrative elements, evidence files, witness testimonies, and interactive challenges that progressively deepen the players' involvement in this haunting case.
-       
-              The tour features a diverse array of puzzle mechanics specifically designed to reflect the gritty atmosphere of 1970s St. Pauli while challenging participants' deductive reasoning.
-              From deciphering coded messages to analyzing crime scene evidence and reconstructing timelines, each station presents unique obstacles that must be overcome to advance the investigation.
-              These varied challenges ensure constant engagement, with each location offering fresh perspectives on the unfolding case through a compelling blend of visual, auditory, and tactile elements.
-        
-              Advanced augmented reality technology elevates the experience to new heights of immersion.
-              Players use their devices to scan specific environmental markers throughout St. Pauli, triggering detailed 3D recreations of evidence, crime scenes, and historical contexts.
-              This technological integration transforms the modern streets into a window to the past, where the boundaries between present-day Hamburg and its dark history begin to blur. As players interact with these augmented elements, they gain deeper insights into both the case and the sociocultural landscape that enabled Honka's horrific crimes to go undetected for so long.
-      
-              Throughout the investigation, Commissioner Hansen maintains constant communication with the team via the tablet, providing guidance, contextual information, and responding to discoveries in real-time. This dynamic communication system creates a sense of urgency and authenticity as participants race against time to gather sufficient evidence before the trial concludes and a dangerous predator potentially walks free.
-              
-              "Fritz Honka - Der Frauenmörder von St. Pauli" delivers a powerful blend of historical education, technological innovation, and immersive storytelling.
-              While unflinching in its examination of true crime, the experience remains respectful to victims while providing valuable insights into criminal investigation procedures, the social conditions of 1970s Hamburg, and the evolution of forensic techniques.
-              
-              This Unity-powered tour stands as a testament to how interactive technology can transform historical education into an unforgettable journey through one of Germany's most notorious criminal cases.
-     
+        "Fritz Honka - Der Frauenmörder von St. Pauli" transforms Hamburg's infamous red-light district into an immersive investigative experience where participants become police investigators working alongside Commissioner Hansen. This meticulously crafted interactive journey challenges players to solve one of Germany's most notorious serial killer cases, gathering crucial evidence before the trial concludes and more victims fall to Honka's disturbing violence.
+
+The tour's engaging storytelling unfolds through sophisticated GPS-tracking technology that triggers location-specific content as participants navigate St. Pauli's historic streets. Each waypoint activates fresh narrative elements, evidence files, and witness testimonies that progressively deepen involvement in this haunting case.
+
+Immersion is heightened through advanced augmented reality technology, allowing players to scan environmental markers that trigger detailed 3D recreations of evidence and crime scenes. This technological integration creates a memorable experience where the boundaries between present-day Hamburg and its dark history blur, providing deeper insights into both the case and the sociocultural landscape of 1970s St. Pauli.
+
+The interaction design features diverse puzzle mechanics specifically crafted to reflect the gritty atmosphere while challenging participants' deductive reasoning. From deciphering coded messages to analyzing crime scene evidence, each station presents unique obstacles through a compelling blend of visual, auditory, and tactile elements, ensuring constant engagement throughout this Unity-powered journey through dark history.
 `,
     technologies: ["Unity", "AR"],
     layout: "video",
@@ -131,29 +82,20 @@ export const projects: ProjectData[] = [
       "/Website/img/mh/HHHonka-4.png",
       "/Website/img/mh/HHHonka-AR0.png",
     ],
+    url:"https://mind-hunters.de/fritz-honka-der-frauenmoerder-von-st-pauli/"
   },
   {
     id: "IBDWM",
     title: "Im Bann des Waldmenschen",
-    shortDescription: `"Im Bann des Waldmenschen" is a city escape game with android.`,
+    shortDescription: `"Im Bann des Waldmenschen" transforms regional true crime history into an engaging interactive experience. Set in 1967 Osnabrück, participants assist police in gathering evidence against suspected murderer Bruno F. before his trial concludes.`,
     description: `
-        “Im Bann des Waldmenschen” True Crime Outdoor Tour transforms regional history into an engaging, interactive experience for curious and adventous audiences.
-                Combining innovative learning methods with the thrill of outdoor adventure, “Im Bann des Waldmenschen” integrates educational storytelling, diverse riddles, and cutting-edge technology to create a unique and immersive experience.
-              
-                Set in 1967 Osnabrück, the tour draws participants into a gripping investigation. A wave of burglaries and a murder have shaken the city, and the suspect, Bruno F., was arrested on February 24, 1967.
-                But now, during his trial, it’s becoming clear that the evidence may not be enough to convict him.
-                With time running out, it’s up to the participants to assist the police in gathering the final clues that will ensure justice is served.
-          
-                Participants are equipped with an Android tablet featuring GPS tracking, guiding them through the experience.
-                As they approach each designated location, the tablet automatically triggers the next chapter of the story, revealing new clues, challenges, and interactive content that deepen the narrative. This seamless integration of location-based technology ensures that the adventure unfolds dynamically, immersing players further into the plot as they progress through each station.
-    
-                To create a captivating and immersive narrative, I created a variety of riddle mechanics that challenge participants in different ways, making each stop along the journey feel fresh and engaging.
-                Each riddle is created to deepen the storyline and provide new perspectives on the unfolding plot.
-                Each station combines visual, auditory, and tactile elements, ensuring diverse puzzle dynamics.
- 
-                The tours integrate advanced augmented reality with image detection to trigger riddle logics and accurately place 3D objects in the environment. Players use their devices to scan specific markers or clues, activating hidden puzzles and animations that respond to their actions. This dynamic interaction turns the surroundings into an evolving landscape, where solving each challenge propels the story forward and deepens the immersion.
-       
-                This project got realized in Unity.`,
+      "Im Bann des Waldmenschen" transforms regional true crime history into an engaging interactive experience for curious and adventurous audiences. Set in 1967 Osnabrück, this outdoor tour draws participants into a gripping investigation where a wave of burglaries and a murder have shaken the city. With suspect Bruno F. already on trial and evidence potentially insufficient for conviction, participants must assist the police in gathering the final clues to ensure justice is served before time runs out.
+
+The immersive storytelling unfolds through Android tablets equipped with GPS tracking technology. As participants approach each designated location, the tablet automatically triggers the next chapter of the story, revealing new clues, challenges, and interactive content. This seamless integration of location-based technology ensures the adventure unfolds dynamically, deepening involvement as players progress through each station.
+
+The interaction design features a variety of riddle mechanics created to challenge participants in different ways, making each stop along the journey feel fresh and engaging. Each puzzle is designed to deepen the storyline and provide new perspectives on the unfolding plot through a compelling combination of visual, auditory, and tactile elements, ensuring diverse puzzle dynamics throughout the experience.
+
+Advanced augmented reality with image detection enhances immersion by triggering riddle logic and accurately placing 3D objects in the environment. Players scan specific markers or clues, activating hidden puzzles and animations that respond to their actions. This dynamic interaction turns the surroundings into an evolving landscape, creating a memorable experience where solving each challenge propels the story forward in this Unity-powered journey through historical investigation.`,
     technologies: ["Unity", "AR"],
     layout: "video",
     thumbnailUrl: "/Website/img/mh/IBDWM_head.png",
@@ -168,71 +110,95 @@ export const projects: ProjectData[] = [
       "/Website/img/mh/IBDWM-AR2.png",
       "/Website/img/mh/IBDWM-AR3.png",
     ],
-    url: "",
+    url: "https://mind-hunters.de/im-bann-des-waldmenschen/",
+  },
+
+  {
+    id: "ARGames",
+    title: "Spacial AR Games",
+    shortDescription: `"Spacial AR Games" in an immersive interactive installation that merges augmented reality With physical space through projection mapping.`,
+    description: `
+   "Spacial AR Games" is an immersive interactive installation that merges augmented reality With physical space through projection mapping. The experience is driven by a
+LiDAR sensor system that captures the player movements, translating them into real-time gameplay elements. The installation features generative visuals and audio-reactive lighting created in TouchDesigner, projected across the space using a multi-projector setup.
+  This creates a responsive environment where participants actions directly influence the audiovisual landscape, blending digital gameplay With physical presence.
+
+  The project contains four games:
+  - Floor is lava: the player has to stay in the white blue area and avoid the lava around it.
+  - Collect the bubbles: the audience has to collect the bubbles that come down from the wall towards the player.
+  - Avoid the blocks: the player has to avoid getting hit from a block
+  - Run from side to side: The user has to run from side to side to collect as much points as possible in a certain time frame.
+    `,
+    technologies: ["TouchDesigner"],
+    layout: "video",
+    thumbnailUrl:"/Website/img/SpacialARGames/corre/4.png",
+    videoUrl: "https://www.youtube.com/embed/8ECLjSvQmgQ?si=icuIO5hmLXfGgju2",
+    detailImages: [
+      "/Website/img/SpacialARGames/setup/1.png",
+      "/Website/img/SpacialARGames/setup/2.png",
+      "/Website/img/SpacialARGames/setup/td5.png",
+      "/Website/img/SpacialARGames/setup/td6.png",
+      "/Website/img/SpacialARGames/corre/1.png",
+      "/Website/img/SpacialARGames/corre/2.png",
+      "/Website/img/SpacialARGames/corre/3.png",
+      "/Website/img/SpacialARGames/corre/5.png",
+      "/Website/img/SpacialARGames/corre/7.png",
+      "/Website/img/SpacialARGames/bubbles/1.png",
+      "/Website/img/SpacialARGames/bubbles/2.png",
+      "/Website/img/SpacialARGames/bubbles/3.png",
+      "/Website/img/SpacialARGames/lava/1.png",
+      "/Website/img/SpacialARGames/lava/2.png",
+      "/Website/img/SpacialARGames/lava/3.png",
+      "/Website/img/SpacialARGames/blocks/1.png",
+      "/Website/img/SpacialARGames/blocks/2.png",
+      "/Website/img/SpacialARGames/blocks/3.png",
+
+    ],
+
   },
   {
     id: "10XCC",
     title: "10XCC",
     shortDescription: `10XCC is a tutorial series`,
-    description: `A tutorial series.
+    description: `10XCC is a series of videos where I am recording my creative process of creating visuals. Find all videos at the link.
        `,
     technologies: ["TouchDesigner", "P5.js", "VCVRack"],
     layout: "video",
     thumbnailUrl: "/Website/img/img/10xcc.jpeg",
-    videoUrl: "https://www.youtube.com/embed/HinEnRT7pWM?si=s9ZNvXnKiSNOf7C4",
-    detailVideos: [
-      "https://www.youtube.com/embed/WZLz9xSzXPc?si=19q1_O1_Pf1tyYcz",
-      "https://www.youtube.com/embed/tcDTtOKTo_4?si=OyVnHdlnId6D4ldQ",
-      "https://www.youtube.com/embed/L3tbP1wpe5c?si=Xos9SJrNa5Ex1Cbz",
-      "https://www.youtube.com/embed/fvtuS5No6fY?si=zSD20P66OHHc4DeJ",
-      "https://www.youtube.com/embed/cPlk8HjLMbI?si=ZbPZfJRCGyXKrO9l",
-      "https://www.youtube.com/embed/4lgx11IjqRQ?si=lWloGW75458PQtvb",
-      "https://www.youtube.com/embed/hThdOUmYr4A?si=j0BNRm-WPXJhG2zf",
-      "https://www.youtube.com/embed/enfuC7iEv9k?si=LHcfVGS7uUdoze2C",
-      "https://www.youtube.com/embed/4HmJf0lhHSE?si=QHJ-u7b7ff65uY_B",
-      "https://www.youtube.com/embed/9P1KY411Lyk?si=tS0bQnsrEQD8LXgu",
-      "https://www.youtube.com/embed/b6ZTanCH43Q?si=kSzDi3N-QGC22YZU",
-      "https://www.youtube.com/embed/7M2OXRTlvNE?si=WOJydfAAkcD1D3lN",
-      "https://www.youtube.com/embed/97iz52eFL0M?si=fumEgpWR2NMgxLZk",
-      "https://www.youtube.com/embed/uklA5EAZupw?si=BHDGCK8Ypnd8XiGV",
-      "https://www.youtube.com/embed/LPbPCLYiLr4?si=ZjWSW8zrov-l_5Ra",
-      "https://www.youtube.com/embed/7cloEveGRQM?si=c774u1k_STEeVy2n",
-      "https://www.youtube.com/embed/Kpbr5pvDYhQ?si=45pWx7Vi4cRZbVXr",
-      "https://www.youtube.com/embed/0fkyoRDAbyM?si=L0s5M9Vv35XENVsj",
-      "https://www.youtube.com/embed/Bvvty5fWqAI?si=bZXjHw05aKbwDs_Z",
-      "https://www.youtube.com/embed/RRInKqyUiuU?si=t_t3hBKozf0gmZCE",
-      "https://www.youtube.com/embed/OvsywLnwsmE?si=ZcQqNbIdMSfvs1PB",
-      "https://www.youtube.com/embed/zW-_vsHYAC4?si=n_7YKUoEWhWsGoNy",
-      "https://www.youtube.com/embed/79AXJHsdeNQ?si=A6sCMlPiZyyiuYAp",
-      "https://www.youtube.com/embed/ICNli01-ffI?si=n_gRU72tNTEd_kd5",
-      "https://www.youtube.com/embed/PZIP79rAX38?si=dWOz-FVOrCduluz0",
-      "https://www.youtube.com/embed/c-LYNZWzIeI?si=a74-Me84YdjwzIsE",
-      "https://www.youtube.com/embed/l_Pr-hCRY9U?si=kL9OMuxBYs5GtLbU",
-      "https://www.youtube.com/embed/WHSc2koHB2U?si=-a6Itp9oVvzvvwHI",
-      "https://www.youtube.com/embed/jC3Ebl38Z0Y?si=WrsFL0p_ZEvwEpcF",
-      "https://www.youtube.com/embed/cqO247aTkN4?si=r4dMHFc9n8KAX1mf",
-      "https://www.youtube.com/embed/5ZsR1G9Dol8?si=3pMo8PLO2839mywm",
-      "https://www.youtube.com/embed/FoOnOLxuWZ8?si=9Ep9izzM_Zc0hSJm",
-      "https://www.youtube.com/embed/cGW6pCFVGgM?si=yeKKifPRs9gqiLS8",
-      "https://www.youtube.com/embed/PzWGw8K6btQ?si=ZI4RO9N7HsjpcmwT",
-      "https://www.youtube.com/embed/57Dq2AgdN9M?si=BQT2NCyiM_i7yBPv",
-      "https://www.youtube.com/embed/8gQzdx-wVFc?si=6ywwboYVvNymGytK",
-    ],
+    videoUrl: "https://www.youtube.com/embed/Up6CvUowFuc?si=dDu8Z3nR4GbK0bBZ",
+   
 
-    url: "https://www.youtube.com/@mrlevo27",
+    url: "https://www.youtube.com/playlist?list=PLRXS5GZAC6Y97lHwbsQQThB6DAodtBnOG",
   },
 
   {
     id: "ReFracta",
-    title: "Refracta",
-    shortDescription: `Refracta was a audio visual live performance for the Híbrides festival 2024 in Barcelona.`,
+    title: "Re:fracta",
+    shortDescription: `"Re:fracta" is a AV live performance that seeks to question whether an abundance of data truly equates to deeper self-understanding and if more data inherently leads to greater insights.`,
     description: `
-      Live Coding performance for the responsive dreams festival 2024 in Barcelona.`,
-    technologies: ["P5.js", "VCVRack", "Live"],
+    From the outset, technology has aimed to overcome the limitations of the human body and enhance the adaptability and survival in a constantly evolving environment. Today, biohacking and transhumanism represent the forefront of our efforts to extend our bodies through sensors and devices, transforming us into living interfaces that fulfill our desire for self-knowledge and control.
+
+    While these developments promise profound insights, they also raise critical questions about the nature of information and data, with users often left in the dark about how their data is transcoded and interpreted.
+
+    The performance "Re:fracta" seeks to question whether an abundance of data truly equates to deeper self-understanding and if more data inherently leads to greater insights. As we increasingly interact with technology to measure and analyze our lives, does this excess of information contribute to greater clarity, or does it result in more confusion, false conclusions, and a reductionist self-image?
+    
+    "Re:fracta" was performed at the "Hibridés" festival 2024 in Barcelona.
+    
+    At the link you can see a video of the concept of the performance.`,
+    technologies: ["TouchDesigner", "VCVRack", "Live"],
     layout: "video",
-    thumbnailUrl: "/Website/img/levoxtrip/GoExplora-Earth.png",
+    thumbnailUrl: "/Website/img/Refracta/1.JPG",
     videoUrl: "https://www.youtube.com/embed/zPJsoc-IDcs?si=LHhFuVO1KMnV3h6t",
-    url: "https://www.youtube.com/embed/zPJsoc-IDcs?si=LHhFuVO1KMnV3h6t",
+    
+    detailImages: [
+      "/Website/img/Refracta/2.JPG",
+      "/Website/img/Refracta/3.JPG",
+      "/Website/img/Refracta/4.png",
+      "/Website/img/Refracta/5.png",
+      "/Website/img/Refracta/6.png",
+      "/Website/img/Refracta/7.png",
+      "/Website/img/Refracta/8.png",
+    ],
+    url: "https://youtu.be/7Vda9O7-riE",
   },
   {
     id: "GoExplora Barcelona",

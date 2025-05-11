@@ -77,7 +77,7 @@ const ProjectsPage: React.FC = () => {
                 to={`/projects/${project.id}`}
                 className="project-thumb-btn"
               >
-                <h2 className="prev-proj-title">{project.title}</h2>
+                <h3 className="prev-proj-title">{project.title}</h3>
               </Link>
 
               <p className="mb-15">{project.shortDescription}</p>

@@ -18,9 +18,8 @@ const AboutMe = () => {
       <p className="proj-description">
       I'm Leon, an experience designer and creative technologist freelancing in Barcelona.
        With a degree in Communication Design from the University of Applied Sciences and HTW, complemented by formal apprenticeships in both media design and mechatronics, I bring a unique blend of creative vision and technical expertise to every project.
-      ver the past three years, I've developed interactive systems for escape rooms and digital outdoor adventures, focusing on immersive multimedia edutainment experiences with AR integration. My professional work centers on creating engaging, gamified experiences that seamlessly blend digital and physical worlds through interactive storytelling.
-        I’m Leon, I work freelance as a creative technologist and software
-        developer in Barcelona.
+      Over the past three years, I've developed interactive systems for escape rooms and digital outdoor adventures, focusing on immersive multimedia edutainment experiences with AR integration. My professional work centers on creating engaging, gamified experiences that seamlessly blend digital and physical worlds through interactive storytelling.
+     
         <br/>
         <br/>
         <br/>

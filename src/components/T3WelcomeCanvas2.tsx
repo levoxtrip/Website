@@ -39,7 +39,7 @@ const T3WelcomeCanvas2 = () => {
       0.1,
       2000
     );
-    camera.position.z = 20;
+    camera.position.z = 30 ;
     camera.position.y = 3;
     scene.add(camera);
 

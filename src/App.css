@@ -44,7 +44,7 @@
   }
 
   .header-text {
-    @apply text-left text-3xl text-black font-bold uppercase italic;
+    @apply text-left text-4xl text-black font-bold uppercase italic;
   }
 
   .standard-hero-img {
@@ -52,7 +52,7 @@
   }
 
   .proj-description {
-    @apply text-left md:px-50;
+    @apply text-left md:px-20;
   }
 
   .detail-images-grid {
