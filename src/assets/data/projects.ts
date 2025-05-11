@@ -2,6 +2,33 @@ import { ProjectData } from "../../types/project";
 
 export const projects: ProjectData[] = [
   {
+    id: "LGT",
+    title: "Legacy of time",
+    shortDescription: `"The legacy of Time" transforms historical landmarks into waypoints in a race against temporal collapse. This immersive adventure combines mystery with historical exploration as players join Jonas Becker to recover fragments of an artifact that anchors our very timeline.`,
+    description: `
+ "The Legacy of Time" transforms significant historical landmarks into critical waypoints in an urgent mission to preserve the timeline itself. This captivating interactive experience combines historical mystery, puzzle-solving, and temporal preservation as players join forces with Jonas Becker, one of the last members of the Order of the Chroniclers, to recover the scattered fragments of the Chronicle of Memories—an ancient artifact that serves as the anchor of human history—before a shadowy saboteur destroys it and unravels reality as we know it.
+The immersive adventure utilizes GPS-enabled devices that provide real-time guidance and communication from Jonas Becker. This dynamic location-based technology triggers new mission developments, historical revelations, and challenges as participants approach each waypoint, ensuring the adventure unfolds seamlessly and deepening immersion as players advance through their temporal operation.
+The interaction design features strategically designed puzzles that test problem-solving abilities, historical knowledge, and teamwork. Each checkpoint presents unique obstacles through diverse mechanics, maintaining tension throughout the mission. Augmented reality elements seamlessly blend digital and physical realities, allowing players to visualize temporal distortions, decode ancient symbols, and recover fragments of the Chronicle hidden across historical locations.
+Captivating storytelling drives this high-stakes mission, creating a memorable experience that weaves historical appreciation into a thrilling temporal adventure. As the operation progresses, players develop a deeper connection to the historical significance of each location, transforming from curious visitors into essential agents working to preserve the timeline and safeguard humanity's collective memory from catastrophic erasure. The ongoing communication with Jonas Becker creates urgency and personal investment as players race against time to fulfill an ancient prophecy and prevent temporal collapse.
+`,
+    technologies: ["Unity", "AR"],
+    layout: "standard",
+    thumbnailUrl: "/img/mh/ERBE-1.png",
+    // videoUrl: "https://www.youtube.com/embed/E97DH97c_Ok?si=Ya1wEaea1kCfoIB5",
+    detailImages: [
+      "/img/mh/GPS.png",
+      "/img/mh/ERBE-2.png",
+      "/img/mh/ERBE-3.png",
+      "/img/mh/ERBE-4.png",
+      "/img/mh/ERBE-5.png",
+      "/img/mh/ERBE-6.png",
+      "/img/mh/ERBE-7.png",
+
+    ],
+  }
+  ,
+ 
+  {
     id: "CBW",
     title: "Cornelius Blackwood",
     shortDescription: `"Cornelius Blackwood" turns the Dümmer See into the backdrop for an urgent counter-terrorism mission. This experience combines espionage with environmental storytelling as players race to prevent ecological disaster.`,
@@ -180,7 +207,7 @@ The experience unfolds through a seamless smartphone-based platform requiring no
 The technology behind Nils emphasizes inclusivity through customizable language options, ensuring international visitors and new residents can fully engage with and understand your community's heritage. As participants walk between designated locations, they discover fascinating histories and cultural significance through both visual and audio content delivered directly to their smartphones.
 
 This self-guided format allows for exploration at individual pace and preference—whether solo or in groups—democratizing access to cultural knowledge without the constraints of scheduled tour times. Each stop along the journey reveals another layer of your community's unique identity, fostering deeper connection and appreciation among all who participate in this digital cultural expedition.`,
-    technologies: ["React"],
+    technologies: ["Javascript"],
     layout: "standard",
     thumbnailUrl: "/img/gemeinde_entdecken/gemeinde_1.png",
     detailImages: [
