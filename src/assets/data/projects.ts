@@ -182,10 +182,11 @@ The technology behind Nils emphasizes inclusivity through customizable language 
 This self-guided format allows for exploration at individual pace and preference—whether solo or in groups—democratizing access to cultural knowledge without the constraints of scheduled tour times. Each stop along the journey reveals another layer of your community's unique identity, fostering deeper connection and appreciation among all who participate in this digital cultural expedition.`,
     technologies: ["React"],
     layout: "standard",
-    thumbnailUrl: "/img/gemeinde_1.png",
+    thumbnailUrl: "/img/gemeinde_entdecken/gemeinde_1.png",
     detailImages: [
-      "/img/gemeinde_2.png",
-      "/img/gemeinde_3.png",
+      "/img/gemeinde_entdecken/gemeinde_2.png",
+      "/img/gemeinde_entdecken/gemeinde_3.png",
+
     ],
     url: "https://gemeinde-entdecken-tour.vercel.app/",
   },
