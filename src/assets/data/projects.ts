@@ -17,7 +17,7 @@ Captivating storytelling drives this high-stakes mission, creating a memorable e
 `,
     technologies: ["Unity", "AR"],
     layout: "video",
-    thumbnailUrl: "/Website/img/mh/Marissa.png",
+    thumbnailUrl: "/img/mh/Marissa.png",
     videoUrl: "https://www.youtube.com/embed/E97DH97c_Ok?si=Ya1wEaea1kCfoIB5",
     detailImages: [
       "/Website/img/mh/GPS.png",
@@ -44,7 +44,7 @@ Advanced augmented reality technology enhances immersion by allowing players to 
 `,
     technologies: ["Unity", "AR"],
     layout: "video",
-    thumbnailUrl: "/Website/img/mh/BuchDerZeit.png",
+    thumbnailUrl: "/assets/img/mh/BuchDerZeit.png",
     videoUrl: "https://www.youtube.com/embed/8IWW6t6Y5zo?si=DrBvGKZqyW-T7tzC",
     detailImages: [
       "/Website/img/mh/GPS.png",
