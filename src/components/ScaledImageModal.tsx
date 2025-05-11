@@ -34,7 +34,7 @@ const ScaledImageModal: React.FC<Props> = ({
             onClick={onClose}
         >
             <div 
-                className="w-4/5 h-4/5 relative flex items-center justify-center"
+                className="max-w-screen-xl max-h-screen p-4 relative flex items-center"
                 onClick={handleContentClick}
             >
                 {/* Previous button */}
@@ -54,7 +54,7 @@ const ScaledImageModal: React.FC<Props> = ({
                 <img 
                     src={imageSrc} 
                     alt={imageAlt} 
-                    className="max-h-full max-w-full object-contain"
+                    className="max-h-screen max-w-full object-contain"
                 />
 
                 {/* Next button */}
