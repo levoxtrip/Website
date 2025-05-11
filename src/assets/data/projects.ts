@@ -451,7 +451,7 @@ We curated a selection of the artists works for the exhibition ourselves as part
     technologies: ["Unity"],
     layout: "video",
     thumbnailUrl: "/img/shift_space/1.png",
-    videoUrl: "https://youtu.be/qahlFJr39as",
+    videoUrl: "https://www.youtube.com/embed/qahlFJr39as?si=dLI8KNk2mVKE91sL",
     detailImages: [
       "/img/shift_space/1.png",
       "/img/shift_space/2.png",

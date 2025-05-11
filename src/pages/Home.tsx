@@ -17,7 +17,7 @@ const Home = () => {
       {/* <DisplaceGridHand /> */}
       <T3WelcomeCanvas2 />
       <IntroSections />
-      {/* <ProjectsPage /> */}
+
       <Footer />
     </div>
   );

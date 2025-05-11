@@ -28,7 +28,7 @@ const IntroSections = () => {
             {/* Add key to force remount */}
             <ThreeDProjectThumbnail 
               key={`projects-thumbnail-${key}`}
-              imageUrl="Website/img/OverviewThumbnail.png" // Fix path (removed 'public')
+              imageUrl="/img/OverviewThumbnail.png" // Fix path (removed 'public')
               vertexShader={hoverDisplaceVertexShader}
               fragmentShader={tunnelEffectFragmentShader}
             />
@@ -54,7 +54,7 @@ const IntroSections = () => {
             {/* Add key to force remount */}
             <ThreeDProjectThumbnail 
               key={`aboutme-thumbnail-${key}`}
-              imageUrl="Website/img/lxt3.jpg" // Fix path (removed 'public')
+              imageUrl="/img/lxt3.jpg" // Fix path (removed 'public')
               vertexShader={hoverDisplaceVertexShader}
               fragmentShader={tunnelEffectFragmentShader}
               uniforms={{
