@@ -110,7 +110,7 @@
     @apply m-10 flex flex-wrap;
   }
   .video-iframe {
-    @apply w-full md:w-[70%] mx-auto aspect-video;
+    @apply w-full md:w-[90%] mx-auto aspect-video;
   }
 
   .textLink {

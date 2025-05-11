@@ -163,7 +163,7 @@ LiDAR sensor system that captures the player movements, translating them into re
        `,
     technologies: ["TouchDesigner", "P5.js", "VCVRack"],
     layout: "video",
-    thumbnailUrl: "/img/img/10xcc.jpeg",
+    thumbnailUrl: "/img/10xcc.jpeg",
     videoUrl: "https://www.youtube.com/embed/Up6CvUowFuc?si=dDu8Z3nR4GbK0bBZ",
    
 
@@ -211,7 +211,7 @@ LiDAR sensor system that captures the player movements, translating them into re
     thumbnailUrl: "/img/levoxtrip/GoExplora-Earth.png",
     videoUrl: "https://www.youtube.com/embed/S-7YaXTwAbg?si=kgehnusY4Ne4kZbV",
     detailImages: [],
-    url: "https://www.youtube.com/watch?v=S-7YaXTwAbg",
+  
   },
   {
     id: "Inf[ern]o",
@@ -273,8 +273,8 @@ This project has be exhibited at the ars electronica satellite event 2021 in Ber
     detailImages: [
       "/img/sensus_autem_machina/sensur1.jpg",
       "/img/sensus_autem_machina/sensus2.jpg",
-      "/img/sensus_autem_machina/sensus3.jpg",
-      "/img/sensus_autem_machina/sensus4.jpg",
+      "/img/sensus_autem_machina/sensus3.JPG",
+      "/img/sensus_autem_machina/sensus4.JPG",
       "/img/sensus_autem_machina/7_sensus_ars4.png",
       "/img/sensus_autem_machina/7_sensus_ars5.png",
       "/img/sensus_autem_machina/7_sensus_ars6.png",
@@ -449,8 +449,9 @@ We curated a selection of the artists works for the exhibition ourselves as part
 
                     The project was developed and designed in collaboration with Lukas Ruoff and Basil Boyacos`,
     technologies: ["Unity"],
-    layout: "standard",
+    layout: "video",
     thumbnailUrl: "/img/shift_space/1.png",
+    videoUrl: "https://youtu.be/qahlFJr39as",
     detailImages: [
       "/img/shift_space/1.png",
       "/img/shift_space/2.png",
@@ -471,8 +472,9 @@ We curated a selection of the artists works for the exhibition ourselves as part
                By moving through the space, the visitor can discover the vibrant life of one of the biggest
                cities in the world.`,
     technologies: ["TouchDesigner", "Installation"],
-    layout: "standard",
+    layout: "video",
     thumbnailUrl: "/img/Color_City/1.jpg",
+    videoUrl: "https://player.vimeo.com/video/766076790?h=9161d72de7",
     detailImages: [
       "/img/Color_City/1.jpg",
       "/img/Color_City/2.jpg",
