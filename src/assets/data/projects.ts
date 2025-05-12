@@ -317,8 +317,13 @@ And what consequences can the use of machine learning have on us being monitored
 
 This project has be exhibited at the ars electronica satellite event 2021 in Berlin.`,
     technologies: ["Python", "Installation"],
-    layout: "standard",
+    layout: "video",
     thumbnailUrl: "/img/sensus_autem_machina/thum.jpg",
+    videoUrl:"https://player.vimeo.com/video/516729785?byline=0",
+    detailVideos: [
+      "https://player.vimeo.com/video/516727725?loop=1&byline=0",
+      "https://player.vimeo.com/video/516728685?byline=0",
+    ],
     detailImages: [
       "/img/sensus_autem_machina/sensur1.jpg",
       "/img/sensus_autem_machina/sensus2.jpg",
